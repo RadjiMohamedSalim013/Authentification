@@ -13,14 +13,8 @@ connectDB();
 
 app.use(express.json())
 app.use(cookieParser())
-app.use(cors({
-  origin: '*', 
-  credentials: false 
-}));
+app.use(cors({origin: process.env.FRONTEND_URL, credentials: true}))
 
-//app.use('/', require('./routes/authRoutes'))
-
-//API Endpoints
 
 app.get('/', (req, res) => res.send ("API Working"));
 app.use('/api/auth', authRouter)
