@@ -13,7 +13,12 @@ connectDB();
 
 app.use(express.json())
 app.use(cookieParser())
-app.use(cors({origin: process.env.FRONTEND_URL, credentials: true}))
+app.use(cors({
+  origin: 'https://authentification-frontend-t691.onrender.com', 
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true 
+}))
+
 
 
 app.get('/', (req, res) => res.send ("API Working"));
